@@ -77,7 +77,7 @@ namespace API.Controllers
             user.Photos.Add(photo);
             if(await _unitOfWork.Complete())
             {
-                //return _mapper.Map<PhotoDto>(photo);
+                
                 return CreatedAtRoute("GetUser",new{username=username},_mapper.Map<PhotoDto>(photo));
             }
             else{
